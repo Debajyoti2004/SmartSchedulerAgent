@@ -42,3 +42,60 @@ python -m venv venv
 source venv/bin/activate  # or venv\\Scripts\\activate on Windows
 pip install -r requirements.txt
 ```
+
+Here is the exact section you can **copy-paste into your `README.md`** after the setup block:
+
+---
+
+### 2. Setup Google Calendar Credentials
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+2. Create a new project and enable the **Google Calendar API**.
+3. Configure the OAuth consent screen (set to **External** and add your email as a test user).
+4. Create **OAuth client credentials** → Choose **Desktop App**.
+5. Download the credentials file and save it to:
+
+```
+SmartSchedulerAgent/auth/credentials.json
+```
+
+The file must be named exactly: `credentials.json`
+
+---
+
+### 3. Configure `.env`
+
+Create a `.env` file in the root of the project with the following content (adjust paths if needed):
+
+```
+TOKEN_PATH=C:/Users/YourName/.../SmartSchedulerAgent/auth/token.json
+CREDENTIALS_PATH=C:/Users/YourName/.../SmartSchedulerAgent/auth/credentials.json
+GOOGLE_CALENDAR_ID=your-email@gmail.com
+VAPI_API_KEY=your-vapi-api-key
+GOOGLE_API_KEY=your-google-api-key
+COHERE_API_KEY=your-cohere-api-key
+USERS_TIMEZONES_PATH=C:/Users/YourName/.../SmartSchedulerAgent/auth/users_timezones.pkl
+SESSION_MEMORY_PATH=C:/Users/YourName/.../SmartSchedulerAgent/auth/session_memory.pkl
+VECTOR_STORE_PATH=C:/Users/YourName/.../SmartSchedulerAgent/auth/faiss_index
+```
+
+Replace paths with your actual machine path. Avoid using backslashes (`\`) in `.env`—use forward slashes (`/`).
+
+---
+
+### 4. Run the App
+
+```bash
+cd App
+python app.py
+```
+
+Then open your browser to:
+**[http://127.0.0.1:8000](http://127.0.0.1:8000)**
+
+The first time the calendar tool is used, follow the printed URL in the terminal to authenticate and create `token.json`.
+
+![Screenshot 2025-06-19 192041](https://github.com/user-attachments/assets/348c47c6-0e41-4bbb-b8f0-6faa87bdabd1)
+
+![Screenshot 2025-06-19 191718](https://github.com/user-attachments/assets/887d5411-d47c-454e-8940-d583415af10b)
+
