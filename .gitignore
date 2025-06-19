@@ -1,0 +1,16 @@
+@'
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Secret files - DO NOT COMMIT THESE
+auth/token.json
+auth/credentials.json
+
+# Other generated files
+*.sqlite3
+'@ | Set-Content -Path .gitignore -Encoding utf8

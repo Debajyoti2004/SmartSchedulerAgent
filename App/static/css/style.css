@@ -1,0 +1,193 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 700px;
+  height: 90vh;
+  background-color: #18191a;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  background-color: #242526;
+  border-bottom: 1px solid #3a3b3c;
+  color: #e4e6eb;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.message-list {
+  flex-grow: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+}
+
+.message-wrapper.user { align-self: flex-end; }
+.message-wrapper.assistant { align-self: flex-start; }
+
+.message-content {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.message-icon {
+    font-size: 1.8rem;
+    color: #e4e6eb;
+    margin-bottom: 5px;
+}
+
+.message-bubble-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-bubble {
+    padding: 12px 18px;
+    border-radius: 20px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.message-wrapper.user .message-bubble {
+  background-color: #0084ff;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.message-wrapper.assistant .message-bubble {
+  background-color: #3a3b3c;
+  color: #e4e6eb;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+
+.message-timestamp {
+    font-size: 0.75em;
+    color: #b0b3b8;
+    margin-top: 6px;
+}
+.message-wrapper.user .message-timestamp { text-align: right; }
+.message-wrapper.assistant .message-timestamp { text-align: left; margin-left: 50px; }
+
+
+.thoughts-button {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #b0b3b8;
+    background: #3a3b3c;
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 4px 10px;
+    margin-top: 8px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+.thoughts-button:hover { background-color: #4e4f50; }
+
+.thoughts-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #242526;
+    border-left: 3px solid #0084ff;
+    padding: 0 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #dadce1;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+}
+.thoughts-container.expanded { max-height: 500px; padding: 10px 15px; }
+
+.message-form {
+  display: flex;
+  padding: 1rem;
+  background-color: #242526;
+  border-top: 1px solid #3a3b3c;
+  align-items: center;
+}
+
+.message-form input {
+  flex-grow: 1;
+  background-color: #3a3b3c;
+  color: #e4e6eb;
+  border: 1px solid #555;
+  padding: 12px;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+.message-form input::placeholder { color: #b0b3b8; }
+
+.mic-button {
+  background: #3a3b3c;
+  color: #e4e6eb;
+  border: 1px solid #555;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.mic-button.is-listening {
+  background-color: #fa383e;
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(250, 56, 62, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(250, 56, 62, 0); } 100% { box-shadow: 0 0 0 0 rgba(250, 56, 62, 0); } }
+
+button[type="submit"] {
+  background-color: #0084ff;
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:disabled { background-color: #555; cursor: not-allowed; }
+
+.typing-indicator p {
+  color: #b0b3b8;
+  font-weight: bold;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }

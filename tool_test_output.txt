@@ -1,0 +1,47 @@
+============================================
+🗓️  RUNNING CALENDAR TOOL INTEGRATION TEST
+🕖 Timezone: America/New_York
+============================================
+
+🛠️  --- Setting User Timezone ---
+Success. User's home timezone has been set to America/New_York.
+
+📅  --- Getting Today's Date ---
+Today according to the tool is: 2025-06-17
+
+🧠  --- Parsing Natural Dates ---
+🔸 'next Monday'         -> 2025-06-30
+🔸 'first of next month' -> 2025-07-01
+🔸 'August 10, 2025'     -> 2025-08-10
+
+🔍  --- Checking Availability ---
+Availability on next Friday: Available slots found: [{'utc_iso_format': '2025-06-27T13:00:00+00:00', 'target_timezone_format': '09:00 AM (EDT)', 'home_timezone_format': '09:00 AM your time (EDT)'}]
+✅ Successfully found 1 available slots.
+
+➕  --- Creating Meeting 1: 'Project Planning Session' (natural date) ---
+Success. The meeting 'Project Planning Session' has been scheduled. View it here: https://www.google.com/calendar/event?eid=OWZ2Y3N1dnBsdW1pcmk1c3U4ZjZpbDJuMWcgbWFqZWVkZWJhanlvdGkyMDA0QG0
+
+➕  --- Creating Meeting 2: 'Weekly Team Sync' (natural date) ---     
+Success. The meeting 'Weekly Team Sync' has been scheduled. View it here: https://www.google.com/calendar/event?eid=MGpzM29pbjMwaGdta2E5MHVsODRhMzlxNTQgbWFqZWVkZWJhanlvdGkyMDA0QG0
+
+➕  --- Creating Meeting 3: 'Sprint Demo (ISO Input)' (ISO format) ---
+Success. The meeting 'Sprint Demo (ISO Input)' has been scheduled. View it here: https://www.google.com/calendar/event?eid=YW84OHUyZDQ4cTZzcTlrbzZ1aWlqdnJmdGcgbWFqZWVkZWJhanlvdGkyMDA0QG0
+
+🔁  --- Rescheduling Meeting 1 using ISO ---
+Success. The event 'Project Planning Session' has been rescheduled to Friday, June 27 at 02:00 PM EDT.
+
+🔁  --- Rescheduling Meeting 3 using natural date ---
+Success. The event 'Sprint Demo (ISO Input)' has been rescheduled to Saturday, June 28 at 03:00 PM EDT.
+
+❌  --- Deleting Meeting 2 using specific natural date ---
+Error: No event named 'Weekly Team Sync' found on next Thursday.
+
+❌  --- Deleting Meeting 1 (by name only) ---
+Success. The event 'Project Planning Session' has been deleted.
+
+❌  --- Deleting Meeting 3 (by name only) ---
+Success. The event 'Sprint Demo (ISO Input)' has been deleted.
+
+============================================
+✅  TEST SCRIPT COMPLETED
+============================================

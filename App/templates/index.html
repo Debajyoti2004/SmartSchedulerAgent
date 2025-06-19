@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Scheduler</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-header">
+        <h2>Smart Scheduler ✨</h2>
+      </div>
+      <div class="message-list" id="message-list"></div>
+      <form class="message-form" id="message-form">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Type or click the mic to talk..."
+          autocomplete="off"
+        />
+        <button
+          type="button"
+          id="mic-button"
+          class="mic-button"
+          title="Use Voice"
+        >
+          🎤
+        </button>
+        <button type="submit" id="send-button">🚀</button>
+      </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
