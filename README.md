@@ -19,7 +19,7 @@ The core logic is powered by a `SchedulerAgentVoice` class built with LangGraph,
 - **Orchestration:** LangGraph (via LangChain)
 - **LLM Provider:** Google Gemini / Cohere (switchable)
 - **Frontend:** HTML + CSS + JS (with voice input support)
-- **Calendar Integration:** Google Calendar API
+- **Calendar Integration:** Google Calendar API,DateParser
 
 ## 🔧 Tools (Names)
 
