@@ -94,6 +94,9 @@ Then open your browser to:
 
 The first time the calendar tool is used, follow the printed URL in the terminal to authenticate and create `token.json`.
 
+### 5.Agent Flow Diagram
+![image](https://github.com/user-attachments/assets/9723a776-5ad3-4156-b46b-6b3f492557cb)
+
 ![Screenshot 2025-06-19 192041](https://github.com/user-attachments/assets/348c47c6-0e41-4bbb-b8f0-6faa87bdabd1)
 
 ![Screenshot 2025-06-19 191718](https://github.com/user-attachments/assets/887d5411-d47c-454e-8940-d583415af10b)
