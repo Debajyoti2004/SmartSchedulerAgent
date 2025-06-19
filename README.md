@@ -71,7 +71,6 @@ Create a `.env` file in the root of the project with the following content (adju
 TOKEN_PATH=C:/Users/YourName/.../SmartSchedulerAgent/auth/token.json
 CREDENTIALS_PATH=C:/Users/YourName/.../SmartSchedulerAgent/auth/credentials.json
 GOOGLE_CALENDAR_ID=your-email@gmail.com
-VAPI_API_KEY=your-vapi-api-key
 GOOGLE_API_KEY=your-google-api-key
 COHERE_API_KEY=your-cohere-api-key
 USERS_TIMEZONES_PATH=C:/Users/YourName/.../SmartSchedulerAgent/auth/users_timezones.pkl
