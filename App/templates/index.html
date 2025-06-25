@@ -8,28 +8,28 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
   </head>
   <body>
     <div class="chat-container">
       <div class="chat-header">
         <h2>Smart Scheduler ✨</h2>
+        <div class="voice-toggle-container">
+          <span>Voice Mode</span>
+          <label class="switch">
+            <input type="checkbox" id="voice-toggle" />
+            <span class="slider round"></span>
+          </label>
+        </div>
       </div>
       <div class="message-list" id="message-list"></div>
       <form class="message-form" id="message-form">
         <input
           type="text"
           id="user-input"
-          placeholder="Type or click the mic to talk..."
+          placeholder="Type your message..."
           autocomplete="off"
         />
-        <button
-          type="button"
-          id="mic-button"
-          class="mic-button"
-          title="Use Voice"
-        >
-          🎤
-        </button>
         <button type="submit" id="send-button">🚀</button>
       </form>
     </div>

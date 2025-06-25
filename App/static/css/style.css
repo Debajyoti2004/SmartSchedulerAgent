@@ -7,7 +7,6 @@ body {
   align-items: center;
   height: 100vh;
 }
-
 .chat-container {
   width: 100%;
   max-width: 700px;
@@ -19,17 +18,69 @@ body {
   flex-direction: column;
   overflow: hidden;
 }
-
 .chat-header {
   background-color: #242526;
   border-bottom: 1px solid #3a3b3c;
   color: #e4e6eb;
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.2rem;
+  padding: 1rem 1.5rem;
   font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.voice-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3a3b3c;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #0084ff;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #0084ff;
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
 .message-list {
   flex-grow: 1;
   padding: 1.5rem;
@@ -38,33 +89,27 @@ body {
   flex-direction: column;
   gap: 10px;
 }
-
 .message-wrapper {
     display: flex;
     flex-direction: column;
     max-width: 85%;
 }
-
 .message-wrapper.user { align-self: flex-end; }
 .message-wrapper.assistant { align-self: flex-start; }
-
 .message-content {
     display: flex;
     align-items: flex-end;
     gap: 10px;
 }
-
 .message-icon {
     font-size: 1.8rem;
     color: #e4e6eb;
     margin-bottom: 5px;
 }
-
 .message-bubble-container {
     display: flex;
     flex-direction: column;
 }
-
 .message-bubble {
     padding: 12px 18px;
     border-radius: 20px;
@@ -73,21 +118,18 @@ body {
     font-size: 1rem;
     font-weight: 500;
 }
-
 .message-wrapper.user .message-bubble {
   background-color: #0084ff;
   color: white;
   align-self: flex-end;
   border-bottom-right-radius: 5px;
 }
-
 .message-wrapper.assistant .message-bubble {
   background-color: #3a3b3c;
   color: #e4e6eb;
   align-self: flex-start;
   border-bottom-left-radius: 5px;
 }
-
 .message-timestamp {
     font-size: 0.75em;
     color: #b0b3b8;
@@ -95,8 +137,6 @@ body {
 }
 .message-wrapper.user .message-timestamp { text-align: right; }
 .message-wrapper.assistant .message-timestamp { text-align: left; margin-left: 50px; }
-
-
 .thoughts-button {
     font-size: 0.85em;
     font-weight: 600;
@@ -110,7 +150,6 @@ body {
     align-self: flex-start;
 }
 .thoughts-button:hover { background-color: #4e4f50; }
-
 .thoughts-container {
     max-height: 0;
     overflow: hidden;
@@ -126,7 +165,6 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 .thoughts-container.expanded { max-height: 500px; padding: 10px 15px; }
-
 .message-form {
   display: flex;
   padding: 1rem;
@@ -134,7 +172,6 @@ body {
   border-top: 1px solid #3a3b3c;
   align-items: center;
 }
-
 .message-form input {
   flex-grow: 1;
   background-color: #3a3b3c;
@@ -146,28 +183,16 @@ body {
   font-size: 1rem;
 }
 .message-form input::placeholder { color: #b0b3b8; }
-
-.mic-button {
-  background: #3a3b3c;
-  color: #e4e6eb;
-  border: 1px solid #555;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  margin-right: 10px;
-  transition: background-color 0.2s;
-  flex-shrink: 0;
+#user-input.voice-active {
+    background-color: #242526;
+    border-color: #0084ff;
+    animation: pulse-border 1.5s infinite;
 }
-
-.mic-button.is-listening {
-  background-color: #fa383e;
-  color: white;
-  animation: pulse 1.5s infinite;
+@keyframes pulse-border {
+  0% { box-shadow: 0 0 0 0 rgba(0, 132, 255, 0.7); }
+  70% { box-shadow: 0 0 0 5px rgba(0, 132, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 132, 255, 0); }
 }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(250, 56, 62, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(250, 56, 62, 0); } 100% { box-shadow: 0 0 0 0 rgba(250, 56, 62, 0); } }
-
 button[type="submit"] {
   background-color: #0084ff;
   color: white;
@@ -182,10 +207,8 @@ button[type="submit"] {
   align-items: center;
   justify-content: center;
 }
-
 button:disabled { background-color: #555; cursor: not-allowed; }
-
-.typing-indicator p {
+.typing-indicator {
   color: #b0b3b8;
   font-weight: bold;
   animation: blink 1.5s infinite;
